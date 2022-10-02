@@ -12,7 +12,7 @@ if(isset($_SESSION["validarIngreso"])){
 <div class="d-flex justify-content-center text-center">
     <form class="p-5 bg-light" method="post">
         <div class="form-group">
-            <label for="nombre">Rut:</label>
+            <label for="nombre">SKU:</label>
             <div class="input-group"> 
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
@@ -21,7 +21,7 @@ if(isset($_SESSION["validarIngreso"])){
             </div>
         </div>
         <div class="form-group">
-            <label for="nombre">Nombre:</label>
+            <label for="nombre">Nombre Producto:</label>
             <div class="input-group"> 
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
@@ -30,7 +30,7 @@ if(isset($_SESSION["validarIngreso"])){
             </div>
         </div>
         <div class="form-group">
-            <label for="nombre">Apellido:</label>
+            <label for="nombre">Categoría:</label>
             <div class="input-group"> 
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
@@ -39,7 +39,7 @@ if(isset($_SESSION["validarIngreso"])){
             </div>
         </div>
         <div class="form-group">
-            <label for="dte">Fecha de nacimiento:</label>
+            <label for="dte">Precio:</label>
             <div class="input-group">
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-key"></i></span>
@@ -70,7 +70,7 @@ if(isset($_SESSION["validarIngreso"])){
         <button type="submit" class="btn btn-primary">Crear</button>
         <div class= "btn-group">
                 <div class="px-1">
-                <a href="index.php?pagina=inicio" label = "Crear Alumno" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
+                <a href="index.php?pagina=inicio" label = "Crear Producto" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
                 </div>
         </div>
     </form>  

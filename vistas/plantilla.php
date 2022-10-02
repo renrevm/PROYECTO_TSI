@@ -122,7 +122,7 @@ session_start();
                        $_GET["pagina"] == "inicio" ||
                        $_GET["pagina"] == "editar" ||
                        $_GET["pagina"] == "listadoalumnos" ||
-                       $_GET["pagina"] == "crearalumno" ||
+                       $_GET["pagina"] == "crearproducto" ||
                        $_GET["pagina"] == "modificarnotas" ||
                        $_GET["pagina"] == "editarnota" ||
                        $_GET["pagina"] == "salir"){

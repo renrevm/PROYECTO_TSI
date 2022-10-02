@@ -15,29 +15,19 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 <table class="table">
     <thead>
         <tr>
-            <th>Crear Alumnos</th>
-            <th>Registrar Notas Alumnos</th>
-            <th>Eliminar Alumnos</th>
+            <th>Crear Producto</th>
+            <th>Eliminar Producto</th>
             <th>Cerrar Sesión</th>
         </tr>
     </thead>
     <tbody>
-
-    
         <tr>
             <td>
             <div class= "btn-group">
                 <div class="px-1">
-                <a href="index.php?pagina=crearalumno" label = "Crear Alumno" class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="index.php?pagina=crearproducto" label = "Crear Producto" class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                 </div>
             </div>
-            </td>
-            <td>
-                <div class= "btn-group">
-                    <div class="px-1">
-                    <a href="index.php?pagina=modificarnotas" label = "Modificar Notas" class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                    </div>
-                </div>
             </td>
             <td>
                 <div class= "btn-group">
