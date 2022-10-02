@@ -4,7 +4,7 @@
 class ControladorFormularios{
     /*
     __________________________________
-    REGISTRO
+    REGISTRO USUARIOS
     __________________________________
     */
     static public function ctrRegistro(){
@@ -19,7 +19,7 @@ class ControladorFormularios{
     }
     /*
     __________________________________
-    SELECCIONAR REGISTROS PROFESORES
+    VISUALIZAR INVENTARIO
     __________________________________
     */
     static public function ctrSeleccionarRegistros($item, $valor){
@@ -29,7 +29,7 @@ class ControladorFormularios{
     }
     /*
     __________________________________
-    INGRESo
+    INGRESO A SISTEMA
     __________________________________
     */
 

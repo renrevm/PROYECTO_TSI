@@ -64,7 +64,7 @@ if(isset($_SESSION["validarIngreso"])){
                     window.history.replaceState(null, null, window.location.href);
                 }
             </script>';
-            echo '<div class="alert alert-success"> El usuario ha sido registrado exitosamente.</div>';
+            echo '<div class="alert alert-success"> El producto ha sido creado exitosamente.</div>';
         }
         ?>
         <button type="submit" class="btn btn-primary">Crear</button>
