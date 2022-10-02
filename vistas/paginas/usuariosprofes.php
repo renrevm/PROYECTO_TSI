@@ -7,6 +7,7 @@ if(isset($_SESSION["validarIngreso"])){
     }
 
 }else{
+    
     echo '<script> window.location = "index.php?pagina=ingreso"; </script>';
     return;
 }
@@ -47,5 +48,10 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
             </td>
         </tr>      
     <?php endforeach ?>
+    <div class= "btn-group">
+                <div class="px-1">
+                <a href="index.php?pagina=inicio" label = "Volver" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
+                </div>
+        </div>
     </tbody>
 </table>

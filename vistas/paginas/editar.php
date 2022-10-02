@@ -3,8 +3,10 @@ if(isset($_GET["id"])){
     $item = "id";
     $valor = $_GET["id"]; 
     $usuario = ControladorFormularios::ctrSeleccionarRegistros($item, $valor);
+
 }
 ?>
+
 <div class="d-flex justify-content-center text-center">
     <form class="p-5 bg-light" method="post">
         <div class="form-group">
@@ -14,6 +16,7 @@ if(isset($_GET["id"])){
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
                 <input type="text" class="form-control" value="<?php echo $usuario["nombre"]; ?>" placeholder = "Escriba su nombre" id="nombre" name="actualizarNombre">
+                
             </div>
         </div>
         <div class="form-group">
@@ -65,5 +68,10 @@ if(isset($_GET["id"])){
         ?>
 
         <button type="submit" class="btn btn-primary">Actualizar</button>
+        <div class= "btn-group">
+                <div class="px-1">
+                <a href="index.php?pagina=inicio" label = "Volver" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
+                </div>
+        </div>
     </form>  
 </div>

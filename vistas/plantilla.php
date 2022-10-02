@@ -125,6 +125,7 @@ session_start();
                        $_GET["pagina"] == "crearproducto" ||
                        $_GET["pagina"] == "modificarnotas" ||
                        $_GET["pagina"] == "editarnota" ||
+                       $_GET["pagina"] == "usuariosprofes" ||
                        $_GET["pagina"] == "salir"){
                        
                         include "paginas/".$_GET["pagina"].".php";
