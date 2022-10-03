@@ -5,11 +5,13 @@ class ModeloFormularios{
     REGISTRO
     =====================*/
     static public function mdlRegistro($tabla, $datos){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, email, password) 
-        VALUES(:nombre, :email, :password)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, email, password, rol_id) 
+        VALUES(:nombre, :email, :password, :rol_id)");
         $stmt-> bindParam(":nombre",$datos["nombre"], PDO::PARAM_STR);
         $stmt-> bindParam(":email",$datos["email"], PDO::PARAM_STR);
         $stmt-> bindParam(":password",$datos["password"], PDO::PARAM_STR);
+        $stmt-> bindParam(":rol_id",$datos["rol_id"], PDO::PARAM_STR);
+        
         if($stmt->execute()){
             return "ok";
         }else{
@@ -40,11 +42,12 @@ class ModeloFormularios{
     ACTUALIZAR REGISTRO PROFES
     =====================*/
     static public function mdlActualizarRegistro($tabla, $datos){
-        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre, email=:email, password=:password WHERE id= :id ");
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre, email=:email, password=:password, rol_id=:rol_id WHERE id= :id ");
         $stmt-> bindParam(":nombre",$datos["nombre"], PDO::PARAM_STR);
         $stmt-> bindParam(":email",$datos["email"], PDO::PARAM_STR);
         $stmt-> bindParam(":password",$datos["password"], PDO::PARAM_STR);
         $stmt-> bindParam(":id",$datos["id"], PDO::PARAM_INT);
+        $stmt-> bindParam(":rol_id",$datos["rol_id"], PDO::PARAM_INT);
         if($stmt->execute()){
             return "ok";
         }else{
