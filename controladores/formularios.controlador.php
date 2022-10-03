@@ -12,7 +12,8 @@ class ControladorFormularios{
             $tabla = "registros";
             $datos = array("nombre" => $_POST["registroNombre"],
                             "email" => $_POST["registroMail"],
-                            "password" => $_POST["registroPassword"]);
+                            "password" => $_POST["registroPassword"],
+                            "rol_id" => $_POST["registroRol"]);
             $respuesta = ModeloFormularios::mdlRegistro($tabla,$datos);
             return $respuesta;
         }
@@ -94,7 +95,8 @@ class ControladorFormularios{
             $datos = array("id" => $_POST["idUsuario"],
                             "nombre" => $_POST["actualizarNombre"],
                             "email" => $_POST["actualizarMail"],
-                            "password" => $password);
+                            "rol_id" => $_POST["actualizarRol"],
+                            "password" => $password,);
             $respuesta = ModeloFormularios::mdlActualizarRegistro($tabla,$datos);
             return $respuesta;              
             }
