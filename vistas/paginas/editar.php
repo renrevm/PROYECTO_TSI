@@ -3,11 +3,8 @@ if(isset($_GET["id"])){
     $item = "id";
     $valor = $_GET["id"]; 
     $usuario = ControladorFormularios::ctrSeleccionarRegistros($item, $valor);
-}else{
-    include "error404.php";
+
 }
-
-
 ?>
 
 <div class="d-flex justify-content-center text-center">
