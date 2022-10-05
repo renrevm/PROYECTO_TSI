@@ -13,7 +13,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistroProductos(null, null);
 //$notas = ControladorFormularios::ctrSeleccionarRegistrosNotas(null,null);
 //$usuarios = $notas;
 ?>
-<table class="table">
+<table class="table" id="tablaxd">
     <thead>
         <tr>
             <th></th>
@@ -49,5 +49,31 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistroProductos(null, null);
                 <a href="index.php?pagina=inicio" label = "Crear Alumno" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
                 </div>
     </div>
+    <form>Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" /></form>
+    
     </tbody>
 </table>
+<script type="text/javascript">// < ![CDATA[
+function Buscar() {
+            var tabla = document.getElementById('tablaxd');
+            var busqueda = document.getElementById('txtBusqueda').value.toLowerCase();
+            var cellsOfRow="";
+            var found=false;
+            var compareWith="";
+            for (var i = 1; i < tabla.rows.length; i++) {
+                cellsOfRow = tabla.rows[i].getElementsByTagName('td');
+                found = false;
+                for (var j = 0; j < cellsOfRow.length && !found; j++) { compareWith = cellsOfRow[j].innerHTML.toLowerCase(); if (busqueda.length == 0 || (compareWith.indexOf(busqueda) > -1))
+                    {
+                        found = true;
+                    }
+                }
+                if(found)
+                {
+                    tabla.rows[i].style.display = '';
+                } else {
+                    tabla.rows[i].style.display = 'none';
+                }
+            }
+        }
+// ]]></script>

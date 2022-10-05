@@ -30,11 +30,11 @@ if(isset($_GET["id"])){
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="number" class="form-control" value="<?php echo $usuario["SKU"]; ?>" id="SKU" name="actualizarSKU"></td>
+                    <td><input type="number" class="form-control" value="<?php echo $usuario["SKU"]; ?>" id="SKU" name="actualizarSKU" min="0"></td>
                     <td><input type="text" class="form-control" value="<?php echo $usuario["nombre_prod"]; ?>" id="nombre_prod" name="actualizarNombre"></td>
                     <td><input type="text" class="form-control" value="<?php echo $usuario["categoria"]; ?>" id="categoria" name="actualizarCategoria"></td>
-                    <td><input type="number" class="form-control" value="<?php echo $usuario["precio_costo"]; ?>" id="precio_costo" name="actualizarPrecioCosto"></td>
-                    <td><input type="number" class="form-control" value="<?php echo $usuario["precio_venta"]; ?>" id="precio_venta" name="actualizarPrecioVenta"></td>
+                    <td><input type="number" class="form-control" value="<?php echo $usuario["precio_costo"]; ?>" id="precio_costo" name="actualizarPrecioCosto" min="0"></td>
+                    <td><input type="number" class="form-control" value="<?php echo $usuario["precio_venta"]; ?>" id="precio_venta" name="actualizarPrecioVenta" min="0"></td>
                     <td><input type="number" class="form-control" value="<?php echo $usuario["stockactual"]; ?>" id="stockactual" name="actualizarStockActual"></td>
                     <input type="hidden" name="id" value="<?php echo $usuario["id"]; ?>">
                     <td>

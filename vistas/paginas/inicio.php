@@ -17,6 +17,8 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
         <tr>
             <th>Crear Producto</th>
             <th>Editar Stock</th>
+            <th>Compra</th>
+            <th>Venta</th>
             <th>Eliminar Producto</th>
             <th>Cerrar Sesión</th>
         </tr>
@@ -34,6 +36,20 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
             <div class= "btn-group">
                 <div class="px-1">
                 <a href="index.php?pagina=modificarproducto" label = "Editar Producto" class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+            </div>
+            </td>
+            <td>
+            <div class= "btn-group">
+                <div class="px-1">
+                <a href="index.php?pagina=compra" label = "Compra" class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+            </div>
+            </td>
+            <td>
+            <div class= "btn-group">
+                <div class="px-1">
+                <a href="index.php?pagina=venta" label = "Venta" class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                 </div>
             </div>
             </td>

@@ -72,7 +72,7 @@ class ControladorFormularios{
                         }
             
                      </script>';
-                    echo '<div class="alert alert-success"> El usuario ha sido registrado exitosamente.</div>';
+                    echo '<div class="alert alert-danger"> El usuario está registrado y la clave es incorrecta.</div>';
                 }
             }
         }

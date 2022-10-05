@@ -4,6 +4,9 @@ if(isset($_GET["id"])){
     $valor = $_GET["id"]; 
     $usuario = ControladorFormularios::ctrSeleccionarRegistros($item, $valor);
 
+}else{
+    echo '<script> window.location = "index.php?pagina=ingreso"; </script>';
+    return;
 }
 ?>
 
