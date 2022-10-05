@@ -83,9 +83,10 @@ session_start();
                        $_GET["pagina"] == "editar" ||
                        $_GET["pagina"] == "listadoalumnos" ||
                        $_GET["pagina"] == "crearproducto" ||
-                       $_GET["pagina"] == "modificarnotas" ||
-                       $_GET["pagina"] == "editarnota" ||
+                       $_GET["pagina"] == "modificarproducto" ||
+                       $_GET["pagina"] == "editarproducto" ||
                        $_GET["pagina"] == "usuariosprofes" ||
+                       $_GET["pagina"] == "eliminarproducto" ||
                        $_GET["pagina"] == "salir"){
                        
                         include "paginas/".$_GET["pagina"].".php";

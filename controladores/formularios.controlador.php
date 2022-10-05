@@ -127,10 +127,9 @@ class ControladorFormularios{
     SELECCIONAR REGISTROS ALUMNOS
     __________________________________
     */
-    static public function ctrSeleccionarRegistrosAlumnos($item, $valor){
-        $tabla = "alumnos";
-        $table = "notas";
-        $respuesta = ModeloFormularios::mdlSeleccionarRegistrosAlumnos($tabla, $table, $item, $valor);
+    static public function ctrSeleccionarRegistroProductos($item, $valor){
+        $tabla = "productos";
+        $respuesta = ModeloFormularios::mdlSeleccionarRegistroProductos($tabla, $item, $valor);
         return $respuesta;
     }
     /*
@@ -138,15 +137,18 @@ class ControladorFormularios{
     REGISTRO ALUMNOS
     __________________________________
     */
-    static public function ctrRegistroAlumnos(){
-        if(isset($_POST["crearRut"])){
-            $tabla = "alumnos";
-            $table = "notas";
-            $datos = array("rut" => $_POST["crearRut"],
+    static public function ctrRegistroProductos(){
+        if(isset($_POST["crearSKU"])){
+            $tabla = "productos";
+            //$table = "notas";
+            $datos = array("SKU" => $_POST["crearSKU"],
                             "nombre" => $_POST["crearNombre"],
-                            "apellido" => $_POST["crearApellido"],
-                            "fecha_nac" => $_POST["crearFecha"]);
-            $respuesta = ModeloFormularios::mdlRegistroAlumno($tabla, $table, $datos);
+                            "categoria" => $_POST["crearCategoria"],
+                            "precio_costo" => $_POST["crearPrecioCosto"],
+                            "precio_venta" => $_POST["crearPrecioVenta"]);
+                            //"stockactual" => $_POST["stockactual"]
+                        
+            $respuesta = ModeloFormularios::mdlRegistroProductos($tabla, $datos);
             return $respuesta;
         }
     }
@@ -165,15 +167,18 @@ class ControladorFormularios{
     ACTUALIZAR NOTA
     __________________________________
     */
-    static public function ctrActualizarNota(){
-        if(isset($_POST["actualizarNota1"])){
-            $tabla = "notas";
-            $datos = array("nota1" => $_POST["actualizarNota1"],
-                            "nota2" => $_POST["actualizarNota2"],
-                            "nota3" => $_POST["actualizarNota3"],
-                            "nota4" => $_POST["actualizarNota4"],
-                            "id_alumno" => $_POST["IDalumno"]);
-            $respuesta = ModeloFormularios::mdlActualizarNota($tabla,$datos);
+    static public function ctrActualizarProducto(){
+        if(isset($_POST["actualizarSKU"])){
+            $tabla = "productos";
+            $datos = array("SKU" => $_POST["actualizarSKU"],
+                            "nombre_prod" => $_POST["actualizarNombre"],
+                            "categoria" => $_POST["actualizarCategoria"],
+                            "precio_costo" => $_POST["actualizarPrecioCosto"],
+                            "precio_venta" => $_POST["actualizarPrecioVenta"],
+                            "stockactual" => $_POST["actualizarStockActual"],
+                            "id" => $_POST["id"]                            
+                        );
+            $respuesta = ModeloFormularios::mdlActualizarProducto($tabla,$datos);
             return $respuesta;              
             }
         }
@@ -182,18 +187,21 @@ class ControladorFormularios{
     ELIMINAR REGISTRO
     __________________________________
     */
-    public function ctrEliminarAlumno(){
-        if(isset($_POST["eliminarAlumno"])){
-            $tabla = "alumnos";
-            $valor = $_POST["eliminarAlumno"];            
-            $respuesta = ModeloFormularios::mdlEliminarAlumno($tabla, $valor);
+    public function ctrEliminarProducto(){
+        if(isset($_POST["eliminarProducto"])){
+            $tabla = "productos";
+            $valor = $_POST["eliminarProducto"];            
+            $respuesta = ModeloFormularios::mdlEliminarProducto($tabla, $valor);
             if($respuesta == "ok"){
                 echo '<script>
                     if (window.history.replaceState){
                         window.history.replaceState(null, null, window.location.href);
                     }
-                    window.location = "index.php?pagina=listadoalumnos";
-                </script>';
+                    window.location = "index.php?pagina=eliminarproducto";
+                
+                </script>
+                echo <div class="alert alert-success"> El producto ha sido eliminado.</div>';;
+                
             }
         }
     }

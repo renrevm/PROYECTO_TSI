@@ -16,6 +16,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
     <thead>
         <tr>
             <th>Crear Producto</th>
+            <th>Editar Stock</th>
             <th>Eliminar Producto</th>
             <th>Cerrar Sesión</th>
         </tr>
@@ -30,9 +31,16 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
             </div>
             </td>
             <td>
+            <div class= "btn-group">
+                <div class="px-1">
+                <a href="index.php?pagina=modificarproducto" label = "Editar Producto" class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+            </div>
+            </td>
+            <td>
                 <div class= "btn-group">
                     <div class="px-1">
-                    <a href="index.php?pagina=listadoalumnos" label = "Eliminar Alumno" class ="btn btn-danger"><i class="fa-solid fa-delete-left"></i></a>
+                    <a href="index.php?pagina=eliminarproducto" label = "Eliminar Producto" class ="btn btn-danger"><i class="fa-solid fa-delete-left"></i></a>
                     </div>
                 </div>
             </td>

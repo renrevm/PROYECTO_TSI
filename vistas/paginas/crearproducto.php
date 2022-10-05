@@ -12,12 +12,12 @@ if(isset($_SESSION["validarIngreso"])){
 <div class="d-flex justify-content-center text-center">
     <form class="p-5 bg-light" method="post">
         <div class="form-group">
-            <label for="nombre">SKU:</label>
+            <label for="sku">SKU:</label>
             <div class="input-group"> 
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
-                <input type="text" class="form-control" id="nombre" name="crearRut">
+                <input type="number" class="form-control" id="sku" name="crearSKU">
             </div>
         </div>
         <div class="form-group">
@@ -30,23 +30,32 @@ if(isset($_SESSION["validarIngreso"])){
             </div>
         </div>
         <div class="form-group">
-            <label for="nombre">Categoría:</label>
+            <label for="categoria">Categoría:</label>
             <div class="input-group"> 
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
-                <input type="text" class="form-control" id="nombre" name="crearApellido">
+                <input type="text" class="form-control" id="categoria" name="crearCategoria">
             </div>
         </div>
         <div class="form-group">
-            <label for="dte">Precio:</label>
-            <div class="input-group">
+            <label for="precio_costo">Precio Costo:</label>
+            <div class="input-group"> 
                 <div class="input-group-prepend"> 
-                    <span class ="input-group-text"><i class="fa-solid fa-key"></i></span>
+                    <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
-                <input type="date" class="form-control" id="dte" name="crearFecha">
+                <input type="number" class="form-control" id="precio_costo" name="crearPrecioCosto">
             </div>
-        </div> 
+        </div>
+        <div class="form-group">
+            <label for="precio_venta">Precio Venta:</label>
+            <div class="input-group"> 
+                <div class="input-group-prepend"> 
+                    <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
+                </div>
+                <input type="number" class="form-control" id="precio_venta" name="crearPrecioVenta">
+            </div>
+        </div>
         <?php
         
         /*
@@ -57,7 +66,7 @@ if(isset($_SESSION["validarIngreso"])){
         /*
         INSTANCIA DE MÉTODO ESTÁTICO
         */
-        $registro = ControladorFormularios::ctrRegistroAlumnos();
+        $registro = ControladorFormularios::ctrRegistroProductos();
         if($registro=="ok"){
             
             echo '<script>
