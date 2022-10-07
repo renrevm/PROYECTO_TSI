@@ -25,7 +25,7 @@ if(isset($_GET["id"])){
                     <th>Categoria</th>
                     <th>Precio Costo</th>
                     <th>Precio Venta</th>
-                    <th>Stock Disponible</th>
+                    <th>Stock Disponibles</th>
                 </tr>
             </thead>
             <tbody>

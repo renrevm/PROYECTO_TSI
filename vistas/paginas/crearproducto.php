@@ -48,7 +48,7 @@ if(isset($_SESSION["validarIngreso"])){
             </div>
         </div>
         <div class="form-group">
-            <label for="precio_venta">Precio Venta:</label>
+            <label for="precio_venta">Precio Ventas :</label>
             <div class="input-group"> 
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
