@@ -44,7 +44,7 @@ if(isset($_SESSION["validarIngreso"])){
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
-                <input type="number" class="form-control" id="precio_costo" name="crearPrecioCosto" min="1">
+                <input type="number" class="form-control" id="precio_costo" name="crearPrecioCosto" min="0">
             </div>
         </div>
         <div class="form-group">
@@ -53,7 +53,7 @@ if(isset($_SESSION["validarIngreso"])){
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
-                <input type="number" class="form-control" id="precio_venta" name="crearPrecioVenta" min="1">
+                <input type="number" class="form-control" id="precio_venta" name="crearPrecioVenta" min="0">
             </div>
         </div>
         <?php
