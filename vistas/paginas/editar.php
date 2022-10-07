@@ -33,15 +33,6 @@ if(isset($_GET["id"])){
         </div>
         <div class="form-group">
             
-            <div class ="input-group"> 
-                <div class="input-group-prepend"> 
-                        <span class ="input-group-text"><i class="fa-solid fa-envelope"></i> </span>
-                </div>
-                <input type="" class="form-control" value="<?php echo $usuario["rol_id"]; ?>" placeholder = "Escriba el rol" id="rol" name="actualizarRol">
-            </div>
-        </div>
-        <div class="form-group">
-            
             <div class="input-group">
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-key"></i></span>

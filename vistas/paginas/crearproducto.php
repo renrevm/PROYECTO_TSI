@@ -57,7 +57,6 @@ if(isset($_SESSION["validarIngreso"])){
             </div>
         </div>
         <?php
-        
         /*
         INSTANCIA DE MÉTODO NO ESTÁTICO
         $registro = new ControladorFormularios();
