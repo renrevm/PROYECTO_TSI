@@ -6,7 +6,7 @@
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
-                <input type="text" class="form-control" id="nombre" name="registroNombre">
+                <input type="text" class="form-control" id="nombre" name="registroNombre" required>
             </div>
         </div>
         <div class="form-group">
@@ -16,7 +16,7 @@
                         <span class ="input-group-text"><i class="fa-solid fa-envelope"></i> </span>
                 </div>
             
-                <input type="email" class="form-control" id="email" name="registroMail">
+                <input type="email" class="form-control" id="email" name="registroMail" required>
             </div>
         </div>
         <div class="form-group">
@@ -25,10 +25,33 @@
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-key"></i></span>
                 </div>
-                <input type="password" class="form-control" id="pwd" name="registroPassword">
+                <input type="password" class="form-control" id="pwd" name="registroPassword" required>
             </div>
-        </div> 
-
+        </div>
+        <div class="form-group" >
+            <label for="rol">Rol: </label> 
+            <select class="form-control" id="rol" name="registroRol">
+                <option>owner</option> 
+                <option>manager</option>
+                <option>admin</option> 
+                <option>seller</option> 
+            </select>      
+              
+          </div>  
+        <!--<div class="form-group">
+            <label for="rol">Rol:</label>
+            <div class="input-group">
+                <div class="input-group-prepend"> 
+                    <span class ="input-group-text"><i class="fa-solid fa-key"></i></span>
+                </div>
+                <select name="registroRol" class="form-control" id = "rol" onChange ="combo(this,'demo')">
+                <option>owner</option>
+                <option>manager</option>
+                <option>admin</option>
+                <option>seller</option>
+            </div>
+        </div> -->
+    
         <?php
 
         /*
@@ -59,8 +82,6 @@
         }
 
         ?>
-
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary">Crear</button>
     </form>  
 </div>
