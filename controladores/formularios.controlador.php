@@ -12,7 +12,8 @@ class ControladorFormularios{
             $tabla = "registros";
             $datos = array("nombre" => $_POST["registroNombre"],
                             "email" => $_POST["registroMail"],
-                            "password" => $_POST["registroPassword"]);
+                            "password" => $_POST["registroPassword"],
+                            "rol" => $_POST["registroRol"]);
             $respuesta = ModeloFormularios::mdlRegistro($tabla,$datos);
             return $respuesta;
         }
