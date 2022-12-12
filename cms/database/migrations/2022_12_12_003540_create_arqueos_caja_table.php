@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('termino');
             $table->integer('inicio_caja');
             $table->integer('cierre_caja');
+                        
+
         });
     }
 
