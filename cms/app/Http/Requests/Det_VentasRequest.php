@@ -25,7 +25,7 @@ class Det_VentasRequest extends FormRequest
     {
         return [
             'venta_id'=>'required|unique:ventas/id',
-            'producto_id'=>'required|unique:productos/id',
+            'producto_id'=>'required',
             'cantidad'=>'required|numeric',
             'precio_unitario'=>'required|numeric',
             'sub_total'=>'required|numeric',
