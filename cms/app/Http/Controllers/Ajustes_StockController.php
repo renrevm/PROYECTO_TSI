@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ajuste_stock;
 use Illuminate\Http\Request;
+use App\Http\Request\Ajustes_StockRequest;
 
 class Ajustes_StockController extends Controller
 {
@@ -23,7 +24,7 @@ class Ajustes_StockController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Ajustes_StockRequest $request)
     {
         $ajuste_stock = new Ajuste_Stock();
         $ajuste_stock->id = $request->id;

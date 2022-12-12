@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\det_compra;
 use Illuminate\Http\Request;
+use App\Http\Request\Det_ComprasRequest;
 
 class Det_ComprasController extends Controller
 {
@@ -23,7 +24,7 @@ class Det_ComprasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Det_ComprasRequest $request)
     {
         $det_compra = new Det_Compra();
         $det_compra->compra_id = $request->compra_id;

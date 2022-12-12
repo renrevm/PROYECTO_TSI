@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Arqueo_Caja;
 use Illuminate\Http\Request;
+use App\Http\Request\Arqueos_CajaRequest;
 
 class Arqueos_CajaController extends Controller
 {
@@ -23,7 +24,7 @@ class Arqueos_CajaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Arqueos_CajaRequest $request)
     {
         $Arqueo_Caja = new Arqueo_Caja();
         $Arqueo_Caja->id = $request->id;

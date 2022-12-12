@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Registro;
 use Illuminate\Http\Request;
+use App\Http\Request\RegistrosRequest;
 
 class RegistrosController extends Controller
 {
@@ -23,7 +24,7 @@ class RegistrosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegistrosRequest $request)
     {
         $Registro = new Registro();
         $Registro->id = $request->id;

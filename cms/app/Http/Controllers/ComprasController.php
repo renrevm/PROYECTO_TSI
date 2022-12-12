@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\compra;
 use Illuminate\Http\Request;
+use App\Http\Request\ComprasRequest;
 
 class ComprasController extends Controller
 {
@@ -23,7 +24,7 @@ class ComprasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComprasRequest $request)
     {
         $compra = new Compra();
         $compra->id = $request->id;

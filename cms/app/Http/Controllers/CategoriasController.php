@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Http\Request\CategoriasRequest;
 
 class CategoriasController extends Controller
 {
@@ -23,7 +24,7 @@ class CategoriasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriasRequest $request)
     {
         $categoria = new Categoria();
         $categoria->id = $request->id;

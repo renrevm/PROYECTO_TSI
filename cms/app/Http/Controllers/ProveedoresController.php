@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\proveedor;
 use Illuminate\Http\Request;
+use App\Http\Request\ProveedoresRequest;
 
 class ProveedoresController extends Controller
 {
@@ -23,7 +24,7 @@ class ProveedoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProveedoresRequest $request)
     {
         $proveedor = new Proveedor();
         $proveedor->id = $request->id;

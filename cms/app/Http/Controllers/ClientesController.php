@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\cliente;
 use Illuminate\Http\Request;
+use App\Http\Request\ClientesRequest;
 
 class ClientesController extends Controller
 {
@@ -23,7 +24,7 @@ class ClientesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientesRequest $request)
     {
         $cliente = new Cliente();
         $cliente->id = $request->id;

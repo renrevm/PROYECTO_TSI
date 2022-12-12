@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Http\Request\ProductosRequest;
 
 class ProductosController extends Controller
 {
@@ -23,14 +24,14 @@ class ProductosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductosRequest $request)
     {
         //dd($request->cod_producto);
         $producto = new Producto();
         $producto->id = $request->id;
         $producto->id_categoria = $request->id_categoria;
         $producto->id_ajuste = $request->id_ajuste;
-        $producto->Nombre_producto = $request->nombre_producto;
+        $producto->nombre_producto = $request->nombre_producto;
         $producto->precio_costo = $request->precio_costo;
         $producto->precio_venta = $request->precio_venta;
         $producto->stock = $request->stock;
@@ -61,7 +62,7 @@ class ProductosController extends Controller
         $producto->id = $request->id;
         $producto->id_categoria = $request->id_categoria;
         $producto->id_ajuste = $request->id_ajuste;
-        $producto->Nombre_producto = $request->nombre_producto;
+        $producto->nombre_producto = $request->nombre_producto;
         $producto->precio_costo = $request->precio_costo;
         $producto->precio_venta = $request->precio_venta;
         $producto->stock = $request->stock;
