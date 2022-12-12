@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\det_compra;
 use Illuminate\Http\Request;
 
-class DetComprasController extends Controller
+class Det_ComprasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class DetComprasController extends Controller
      */
     public function index()
     {
-        return DetCompra::all();
+        return Det_Compra::all();
     }
 
     /**
@@ -25,9 +25,9 @@ class DetComprasController extends Controller
      */
     public function store(Request $request)
     {
-        $det_compra = new DetCompra();
-        $det_compra->id = $request->id;
-        $det_compra->id_producto = $request->id_producto;
+        $det_compra = new Det_Compra();
+        $det_compra->compra_id = $request->compra_id;
+        $det_compra->producto_id = $request->producto_id;
         $det_compra->cantidad = $request->cantidad;
         $det_compra->precio_unitario = $request->precio_unitario;
         $det_compra->sub_total = $request->sub_total;
@@ -55,8 +55,8 @@ class DetComprasController extends Controller
      */
     public function update(Request $request, det_compra $det_compra)
     {
-        $det_compra->id_producto = $request->id_producto;
-        $det_compra->id = $request->id;
+        $det_compra->compra_id = $request->compra_id;
+        $det_compra->producto_id = $request->producto_id;
         $det_compra->cantidad = $request->cantidad;
         $det_compra->precio_unitario = $request->precio_unitario;
         $det_compra->sub_total = $request->sub_total;

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\detventa;
+use App\Models\Det_Venta;
 use Illuminate\Http\Request;
 
-class DetVentasController extends Controller
+class Det_VentasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class DetVentasController extends Controller
      */
     public function index()
     {
-        return DetVenta::all();
+        return Det_Venta::all();
     }
 
     /**
@@ -25,12 +25,13 @@ class DetVentasController extends Controller
      */
     public function store(Request $request)
     {
-        $det_venta = new DetVenta();
-        $det_venta->id = $request->id;
-        $det_venta->id_producto = $request->id_producto;
+        $det_venta = new Det_Venta();
+        $det_venta->venta_id = $request->venta_id;
+        $det_venta->producto_id = $request->producto_id;
         $det_venta->cantidad = $request->cantidad;
-        $det_venta->precio = $request->precio;
+        $det_venta->precio_unitario = $request->precio_unitario;
         $det_venta->sub_total = $request->sub_total;
+        $det_venta->total = $request->total;
         $det_venta->medio_pago = $request->medio_pago;
         $det_venta->save();
     }
@@ -38,10 +39,10 @@ class DetVentasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\detventa  $detventa
+     * @param  \App\Models\Det_Venta  $Det_Venta
      * @return \Illuminate\Http\Response
      */
-    public function show(detventa $detventa)
+    public function show(Det_Venta $Det_Venta)
     {
         return $det_venta;
     }
@@ -50,16 +51,17 @@ class DetVentasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\detventa  $detventa
+     * @param  \App\Models\Det_Venta  $Det_Venta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detventa $detventa)
+    public function update(Request $request, Det_Venta $Det_Venta)
     {
-        $det_venta->id = $request->id;
-        $det_venta->id_producto = $request->id_producto;
+        $det_venta->venta_id = $request->venta_id;
+        $det_venta->producto_id = $request->producto_id;
         $det_venta->cantidad = $request->cantidad;
-        $det_venta->precio = $request->precio;
+        $det_venta->precio_unitario = $request->precio_unitario;
         $det_venta->sub_total = $request->sub_total;
+        $det_venta->total = $request->total;
         $det_venta->medio_pago = $request->medio_pago;
         $det_venta->save();
         return $det_venta;
@@ -68,10 +70,10 @@ class DetVentasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\detventa  $detventa
+     * @param  \App\Models\Det_Venta  $Det_Venta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detventa $detventa)
+    public function destroy(Det_Venta $Det_Venta)
     {
         $det_venta->delete();
     }

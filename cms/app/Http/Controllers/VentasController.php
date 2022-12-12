@@ -25,7 +25,13 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $venta = new Venta();
+        $venta->id = $request->id;
+        $venta->id_usuario = $request->id_usuario;
+        $venta->id_cliente = $request->id_cliente;
+        $venta->fecha = $request->fecha;
+        $venta->total = $request->total;
+        $venta->save();
     }
 
     /**
@@ -36,7 +42,7 @@ class VentasController extends Controller
      */
     public function show(venta $venta)
     {
-        //
+        return $venta;
     }
 
     /**
@@ -48,7 +54,13 @@ class VentasController extends Controller
      */
     public function update(Request $request, venta $venta)
     {
-        //
+        $venta->id = $request->id;
+        $venta->id_usuario = $request->id_usuario;
+        $venta->id_cliente = $request->id_cliente;
+        $venta->fecha = $request->fecha;
+        $venta->total = $request->total;
+        $venta->save();
+        return $venta;
     }
 
     /**
@@ -59,6 +71,6 @@ class VentasController extends Controller
      */
     public function destroy(venta $venta)
     {
-        //
+        $venta->delete();
     }
 }

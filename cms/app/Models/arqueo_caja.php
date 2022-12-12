@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class detventa extends Model
+class arqueo_caja extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $table = 'det_ventas';
+    protected $table = 'Arqueos_Caja';
     public $timestamps = false;
 }

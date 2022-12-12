@@ -29,10 +29,11 @@ class ProductosController extends Controller
         $producto = new Producto();
         $producto->id = $request->id;
         $producto->id_categoria = $request->id_categoria;
+        $producto->id_ajuste = $request->id_ajuste;
         $producto->Nombre_producto = $request->nombre_producto;
         $producto->precio_costo = $request->precio_costo;
         $producto->precio_venta = $request->precio_venta;
-        $producto->stock_disponible = $request->stock_disponible;
+        $producto->stock = $request->stock;
         $producto->save();
 
     }
@@ -59,10 +60,11 @@ class ProductosController extends Controller
     {
         $producto->id = $request->id;
         $producto->id_categoria = $request->id_categoria;
+        $producto->id_ajuste = $request->id_ajuste;
         $producto->Nombre_producto = $request->nombre_producto;
         $producto->precio_costo = $request->precio_costo;
         $producto->precio_venta = $request->precio_venta;
-        $producto->stock_disponible = $request->stock_disponible;
+        $producto->stock = $request->stock;
         $producto->save();
         return $producto;
 
