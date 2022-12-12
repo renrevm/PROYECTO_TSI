@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
+class CreateProveedoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proveedores', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->integer('telefono');
-            $table->string('direccion');
-            $table->softdeletes();
+            $table->integer('id')->unsigned();
+            $table->string('contacto',50)->nullable();
+            $table->string('telefono_contacto',50)->nullable(); 
+            
+            $table->foreign('id')->references('id')->on('personas')->onDelete('cascade'); 
             
         });
     }
@@ -32,4 +32,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('proveedores');
     }
-};
+}
