@@ -67,9 +67,9 @@ session_start();
       <ul class="navbar-nav">
         <li class="nav-item">
     
-        <?php if(isset($_SESSION["validarIngreso"])){
+       <!-- <?php if(isset($_SESSION["validarIngreso"])){
     if($_SESSION["validarIngreso"] == "ok"){
-  ?>               <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modal_cart" style="color: red;"><i class="fas fa-shopping-cart"></i> <?php echo $totalcantidad; ?></a>                 <?php    } } ?> 
+  ?>               <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modal_cart" style="color: red;"><i class="fas fa-shopping-cart"></i> <?php echo $totalcantidad; ?></a>                 <?php    } } ?> -->
         </li>
       </ul>
     </div>

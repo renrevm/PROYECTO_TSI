@@ -16,6 +16,3 @@ if(isset($_SESSION["validarIngreso"])){
                 </div>
 </div>
 
-include("../admin/navbar.php");
-include("nav_cart.php");
-include("modal_cart.php");

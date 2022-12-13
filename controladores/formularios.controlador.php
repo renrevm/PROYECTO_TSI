@@ -55,7 +55,7 @@ class ControladorFormularios{
                 && $respuesta["password"]  == $_POST["ingresoPassword"]){
                     
                     $_SESSION["validarIngreso"] = "ok";
-
+                    
                     echo '<script>
 
                         if (window.history.replaceState){
