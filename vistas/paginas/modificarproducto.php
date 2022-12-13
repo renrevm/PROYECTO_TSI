@@ -30,8 +30,8 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistroProductos(null, null);
         <tr>
             <td><?php echo ($key+1); ?></td>
             <td><?php echo $value["SKU"]; ?></td>
-            <td><?php echo $value["nombre_prod"]; ?></td>
-            <td><?php echo $value["categoria"]; ?></td>
+            <td><?php echo $value["nombre_producto"]; ?></td>
+            <td><?php echo $value["nombre_categoria"]; ?></td>
             <td><?php echo $value["precio_costo"]; ?></td>
             <td><?php echo $value["precio_venta"]; ?></td>
             <td><?php echo $value["stockactual"]; ?></td>
@@ -46,7 +46,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistroProductos(null, null);
     <?php endforeach ?>
     <div class= "btn-group">
                 <div class="px-1">
-                <a href="index.php?pagina=inicio" label = "Crear Alumno" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
+                <a href="index.php?pagina=inicio" label = "Crear Producto" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
                 </div>
     </div>
     <form>Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" /></form>

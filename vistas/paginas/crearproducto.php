@@ -8,6 +8,7 @@ if(isset($_SESSION["validarIngreso"])){
     echo '<script> window.location = "index.php?pagina=ingreso"; </script>';
     return;
 }
+
 ?>
 <div class="d-flex justify-content-center text-center">
     <form class="p-5 bg-light" method="post">
@@ -30,13 +31,17 @@ if(isset($_SESSION["validarIngreso"])){
             </div>
         </div>
         <div class="form-group">
-            <label for="categoria">Categoría:</label>
+            <label for="categoria">Categoria:</label>
             <div class="input-group"> 
                 <div class="input-group-prepend"> 
                     <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
                 </div>
-                <input type="text" class="form-control" id="categoria" name="crearCategoria">
-            </div>
+                <select class="form-control" id="categoria" name="crearCategoria">
+                    <option value="1">Carnes</option>
+                    <option value="2">Accesorios</option>
+                    <option value="3">Picoteo</option>
+                    <option value="4">Liquidos</option>
+                </select>
         </div>
         <div class="form-group">
             <label for="precio_costo">Precio Costo:</label>
@@ -66,14 +71,15 @@ if(isset($_SESSION["validarIngreso"])){
         INSTANCIA DE MÉTODO ESTÁTICO
         */
         $registro = ControladorFormularios::ctrRegistroProductos();
-        if($registro=="ok"){
-            
-            echo '<script>
-                if (window.history.replaceState){
-                    window.history.replaceState(null, null, window.location.href);
-                }
+        if($registro == "ok"){
+            echo '<script> 
+            if(window.history.replaceState){
+                window.history.replaceState(null, null, window.location.href);
+            }
             </script>';
-            echo '<div class="alert alert-success"> El producto ha sido creado exitosamente.</div>';
+            echo '<div class="alert alert-success">El producto ha sido creado</div>';
+        }else if($registro == "error"){
+            echo '<div class="alert alert-danger">El producto no ha sido creado</div>';
         }
         ?>
         <button type="submit" class="btn btn-primary">Crear</button>

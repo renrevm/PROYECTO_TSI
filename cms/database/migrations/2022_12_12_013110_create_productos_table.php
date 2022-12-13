@@ -16,15 +16,13 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_categoria');
-            $table->unsignedBigInteger('id_ajuste');
             $table->string('nombre_producto');
             $table->integer('precio_costo');
             $table->integer('precio_venta');
             $table->integer('stock');
-    
             $table->softdeletes();
             $table->foreign('id_categoria')->references('id')->on('categorias');
-            $table->foreign('id_ajuste')->references('id')->on('ajustes_stock');
+            
         });
     }
 

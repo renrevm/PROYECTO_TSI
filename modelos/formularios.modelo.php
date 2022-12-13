@@ -67,48 +67,46 @@ class ModeloFormularios{
     SELECCIONAR REGISTROS ALUMNOS
     __________________________________  
     */
-    static public function mdlSeleccionarRegistroProductos($tabla, $item, $valor){
-
+    static public function mdlSeleccionarRegistroProductos($tabla, $table, $item, $valor){
         if($item == null && $valor == null){
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.id_categoria");
             $stmt->execute();
-            return $stmt -> fetchAll();
-        }
-        else{
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
+            return $stmt -> fetchAll();    
+        }else{
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.id_categoria AND c.$item = :$item");
             $stmt-> bindParam(":".$item,$valor, PDO::PARAM_STR);
             $stmt->execute();
-            return $stmt -> fetch();
+            return $stmt -> fetch();    
         }
         $stmt = null;
     }
     /*=====================
     CREAR PRODUCTO
     =====================*/
-    static public function mdlRegistroProductos($tabla, $datos){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(SKU, nombre_prod, categoria, precio_costo, precio_venta, stockactual) VALUES(:SKU, :nombre_prod, :categoria, :precio_costo, :precio_venta, 0)");
+    static public function mdlRegistroProducto($tabla, $datos){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(SKU, nombre_producto, id_categoria, precio_costo, precio_venta, stockactual) 
+        VALUES(:SKU, :nombre_producto, :id_categoria, :precio_costo, :precio_venta, 0)");
         $stmt-> bindParam(":SKU",$datos["SKU"], PDO::PARAM_INT);
-        $stmt-> bindParam(":nombre_prod",$datos["nombre"], PDO::PARAM_STR);
-        $stmt-> bindParam(":categoria",$datos["categoria"], PDO::PARAM_STR);
+        $stmt-> bindParam(":nombre_producto",$datos["nombre_producto"], PDO::PARAM_STR);
+        $stmt-> bindParam(":id_categoria",$datos["id_categoria"], PDO::PARAM_STR);
         $stmt-> bindParam(":precio_costo",$datos["precio_costo"], PDO::PARAM_INT);
         $stmt-> bindParam(":precio_venta",$datos["precio_venta"], PDO::PARAM_INT);
-      //  $stmt-> bindParam(":stockactual",$datos['stockactual'], PDO::PARAM_INT);
+        //$stmt-> bindParam(":stockactual",$datos["stockactual"], PDO::PARAM_INT);
         if($stmt->execute()){
             return "ok";
         }else{
             print_r(Conexion::conectar()->errorInfo());
         }
     }
-
     /*=====================
     ACTUALIZAR REGISTRO PROFES
     =====================*/
     static public function mdlActualizarProducto($tabla, $datos){
-        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET SKU=:SKU, nombre_prod=:nombre_prod, categoria=:categoria, precio_costo=:precio_costo, precio_venta=:precio_venta,
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET SKU=:SKU, nombre_producto=:nombre_producto, id_categoria=:id_categoria, precio_costo=:precio_costo, precio_venta=:precio_venta,
         stockactual=:stockactual WHERE id= :id");
         $stmt-> bindParam(":SKU",$datos["SKU"], PDO::PARAM_INT);
-        $stmt-> bindParam(":nombre_prod",$datos["nombre_prod"], PDO::PARAM_STR);
-        $stmt-> bindParam(":categoria",$datos["categoria"], PDO::PARAM_STR);
+        $stmt-> bindParam(":nombre_producto",$datos["nombre_producto"], PDO::PARAM_STR);
+        $stmt-> bindParam(":id_categoria",$datos["id_categoria"], PDO::PARAM_STR);
         $stmt-> bindParam(":precio_costo",$datos["precio_costo"], PDO::PARAM_INT);
         $stmt-> bindParam(":precio_venta",$datos["precio_venta"], PDO::PARAM_INT);
         $stmt-> bindParam(":stockactual",$datos["stockactual"], PDO::PARAM_INT);
@@ -123,7 +121,7 @@ class ModeloFormularios{
     ELMINAR REGISTRO
     =====================*/
     static public function mdlEliminarProducto($tabla, $valor){
-        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE $tabla.id = :id");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(deleted_at) VALUES(CURRENT_TIMESTAMP()) WHERE $tabla.id = :id");
         $stmt-> bindParam(":id",$valor, PDO::PARAM_INT);
         if($stmt->execute()){
             return "ok";
@@ -131,5 +129,15 @@ class ModeloFormularios{
             print_r(Conexion::conectar()->errorInfo());
         }
     }
+        /*=====================
+    seleccionar categoría
+    =====================*/
+    static public function mdlSeleccionarCategoria($tabla, $query){
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $query");
+        $stmt->execute();
+        dd($stmt);
+        return $stmt -> fetchAll();
+    }
 }
+
 ?>

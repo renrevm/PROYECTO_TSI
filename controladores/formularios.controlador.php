@@ -123,59 +123,47 @@ class ControladorFormularios{
     }
         /*
     __________________________________
-    SELECCIONAR REGISTROS ALUMNOS
+    SELECCIONAR REGISTROS PRODUCTOS
     __________________________________
     */
     static public function ctrSeleccionarRegistroProductos($item, $valor){
         $tabla = "productos";
-        $respuesta = ModeloFormularios::mdlSeleccionarRegistroProductos($tabla, $item, $valor);
+        $table = "categorias";
+        $respuesta = ModeloFormularios::mdlSeleccionarRegistroProductos($tabla, $table, $item, $valor);
         return $respuesta;
     }
     /*
     __________________________________
-    REGISTRO ALUMNOS
+    REGISTRO PRODUCTOS
     __________________________________
     */
     static public function ctrRegistroProductos(){
         if(isset($_POST["crearSKU"])){
             $tabla = "productos";
-            //$table = "notas";
             $datos = array("SKU" => $_POST["crearSKU"],
-                            "nombre" => $_POST["crearNombre"],
-                            "categoria" => $_POST["crearCategoria"],
+                            "nombre_producto" => $_POST["crearNombre"],
+                            "id_categoria" => $_POST["crearCategoria"],
                             "precio_costo" => $_POST["crearPrecioCosto"],
                             "precio_venta" => $_POST["crearPrecioVenta"]);
-                            //"stockactual" => $_POST["stockactual"]
-                        
-            $respuesta = ModeloFormularios::mdlRegistroProductos($tabla, $datos);
+            $respuesta = ModeloFormularios::mdlRegistroProducto($tabla,$datos);
             return $respuesta;
         }
     }
-    /*
-    __________________________________
-    SELECCIONAR REGISTROS NOTAS
-    __________________________________
-    */
-    static public function ctrSeleccionarNotas($item, $valor){
-        $tabla = "notas";
-        $respuesta = ModeloFormularios::mdlSeleccionarNotas($tabla, $item, $valor);
-        return $respuesta;
-    }
         /*
     __________________________________
-    ACTUALIZAR NOTA
+    ACTUALIZAR PRODUCTOS
     __________________________________
     */
     static public function ctrActualizarProducto(){
         if(isset($_POST["actualizarSKU"])){
             $tabla = "productos";
             $datos = array("SKU" => $_POST["actualizarSKU"],
-                            "nombre_prod" => $_POST["actualizarNombre"],
-                            "categoria" => $_POST["actualizarCategoria"],
+                            "nombre_producto" => $_POST["actualizarNombre"],
+                            "id_categoria" => $_POST["actualizarCategoria"],
                             "precio_costo" => $_POST["actualizarPrecioCosto"],
                             "precio_venta" => $_POST["actualizarPrecioVenta"],
                             "stockactual" => $_POST["actualizarStockActual"],
-                            "id" => $_POST["id"]                            
+                            "id" => $_POST["id"]                        
                         );
             $respuesta = ModeloFormularios::mdlActualizarProducto($tabla,$datos);
             return $respuesta;              
@@ -204,6 +192,15 @@ class ControladorFormularios{
             }
         }
     }
-
+/*
+    __________________________________
+    SELECCIONAR CATEGORIA
+    __________________________________
+    */
+    static public function ctrSeleccionarCategorias($query){
+        $tabla = "categorias";
+        $respuesta = ModeloFormularios::mdlSeleccionarCategorias($tabla, $query);
+        return $respuesta;  
+    }                                                                                                           
 }
 ?>

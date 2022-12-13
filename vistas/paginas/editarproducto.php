@@ -19,26 +19,46 @@ if(isset($_GET["id"])){
     <form class="p-5 bg-light" method="post">
         <table class="table">
             <thead>
-                <tr>    
+                <tr>
                     <th>SKU</th>
                     <th>Nombre</th>
                     <th>Categoria</th>
                     <th>Precio Costo</th>
                     <th>Precio Venta</th>
                     <th>Stock Disponibles</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><input type="number" class="form-control" value="<?php echo $usuario["SKU"]; ?>" id="SKU" name="actualizarSKU" min="0"></td>
-                    <td><input type="text" class="form-control" value="<?php echo $usuario["nombre_prod"]; ?>" id="nombre_prod" name="actualizarNombre"></td>
-                    <td><input type="text" class="form-control" value="<?php echo $usuario["categoria"]; ?>" id="categoria" name="actualizarCategoria"></td>
+                    <td><input type="text" class="form-control" value="<?php echo $usuario["nombre_producto"]; ?>" id="nombre_producto" name="actualizarNombre"></td>
+                    <td><select class="form-control" name="actualizarCategoria" id="actualizarCategoria">
+                            <option value="<?php echo $usuario["id_categoria"]; ?>"><?php echo $usuario["nombre_categoria"]; ?></option>
+                            
+                        </select></td>
                     <td><input type="number" class="form-control" value="<?php echo $usuario["precio_costo"]; ?>" id="precio_costo" name="actualizarPrecioCosto" min="0"></td>
                     <td><input type="number" class="form-control" value="<?php echo $usuario["precio_venta"]; ?>" id="precio_venta" name="actualizarPrecioVenta" min="0"></td>
                     <td><input type="number" class="form-control" value="<?php echo $usuario["stockactual"]; ?>" id="stockactual" name="actualizarStockActual"></td>
                     <input type="hidden" name="id" value="<?php echo $usuario["id"]; ?>">
+                    <input type="hidden" name="id_categoria" value="<?php echo $usuario["id_categoria"]; ?>">
                     <td>
                         <?php 
+                        /*
+                                <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <div class="input-group"> 
+                <div class="input-group-prepend"> 
+                    <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
+                </div>
+                <select class="form-control" id="categoria" name="crearCategoria">
+                    <option value="1">Carnes</option>
+                    <option value="2">Accesorios</option>
+                    <option value="3">Picoteo</option>
+                    <option value="4">Liquidos</option>
+                </select>
+        </div>*/ 
                             $actualizar = ControladorFormularios::ctrActualizarProducto();
 
                             if($actualizar == "ok"){

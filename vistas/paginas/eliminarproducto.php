@@ -30,8 +30,8 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistroProductos(null, null);
         <tr>
             <td><?php echo ($key+1); ?></td>
             <td><?php echo $value["SKU"]; ?></td>
-            <td><?php echo $value["nombre_prod"]; ?></td>
-            <td><?php echo $value["categoria"]; ?></td>
+            <td><?php echo $value["nombre_producto"]; ?></td>
+            <td><?php echo $value["nombre_categoria"]; ?></td>
             <td><?php echo $value["precio_costo"]; ?></td>
             <td><?php echo $value["precio_venta"]; ?></td>
             <td><?php echo $value["stockactual"]; ?></td>

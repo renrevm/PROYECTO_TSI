@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('rol');
-            $table->unsignedBigInteger('id_arqueo');
+            
             $table->softdeletes();
-            $table->foreign('id_arqueo')->references('id')->on('arqueos_caja');
+            
 
         });
     }

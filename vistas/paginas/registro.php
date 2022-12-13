@@ -28,16 +28,20 @@
                 <input type="password" class="form-control" id="pwd" name="registroPassword" required>
             </div>
         </div>
-        <div class="form-group" >
-            <label for="rol">Rol: </label> 
-            <select class="form-control" id="rol" name="registroRol">
-                <option>owner</option> 
-                <option>manager</option>
-                <option>admin</option> 
-                <option>seller</option> 
-            </select>      
-              
-          </div>  
+        <div class="form-group">
+            <label for="rol">Rol:</label>
+            <div class="input-group"> 
+                <div class="input-group-prepend"> 
+                    <span class ="input-group-text"><i class="fa-solid fa-person-rays"></i> </span>
+                </div>
+                <select class="form-control" id="rol" name="registroRol">
+                    <option>Owner</option>
+                    <option>Manager</option>
+                    <option>Admin</option>
+                    <option>Seller</option>
+                </select>
+
+        </div>  
         <!--<div class="form-group">
             <label for="rol">Rol:</label>
             <div class="input-group">
