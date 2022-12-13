@@ -73,7 +73,7 @@ class ModeloFormularios{
             $stmt->execute();
             return $stmt -> fetchAll();    
         }else{
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.id_categoria AND c.$item = :$item");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.id_categoria AND t.$item = :$item");
             $stmt-> bindParam(":".$item,$valor, PDO::PARAM_STR);
             $stmt->execute();
             return $stmt -> fetch();    
@@ -99,11 +99,11 @@ class ModeloFormularios{
         }
     }
     /*=====================
-    ACTUALIZAR REGISTRO PROFES
+    ACTUALIZAR REGISTRO PRODUCTO
     =====================*/
     static public function mdlActualizarProducto($tabla, $datos){
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET SKU=:SKU, nombre_producto=:nombre_producto, id_categoria=:id_categoria, precio_costo=:precio_costo, precio_venta=:precio_venta,
-        stockactual=:stockactual WHERE id= :id");
+        stockactual=:stockactual WHERE SKU= :SKU");
         $stmt-> bindParam(":SKU",$datos["SKU"], PDO::PARAM_INT);
         $stmt-> bindParam(":nombre_producto",$datos["nombre_producto"], PDO::PARAM_STR);
         $stmt-> bindParam(":id_categoria",$datos["id_categoria"], PDO::PARAM_STR);
