@@ -38,7 +38,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistroProductos(null, null);
             <td>
                 <div class= "btn-group">
                     <form method="post">
-                        <input type="hidden" value = "<?php echo $value["id"]; ?>" name="eliminarProducto">
+                        <input type="hidden" value = "<?php echo $value["SKU"]; ?>" name="eliminarProducto">
                         <button type="submit" class ="btn btn-danger"><i class="fa-solid fa-delete-left"></i></button>
                         <?php
                             $eliminar = new ControladorFormularios();

@@ -69,7 +69,7 @@ class ModeloFormularios{
     */
     static public function mdlSeleccionarRegistroProductos($tabla, $table, $item, $valor){
         if($item == null && $valor == null){
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.id_categoria");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.id_categoria and t.deleted_at is null");
             $stmt->execute();
             return $stmt -> fetchAll();    
         }else{
@@ -121,8 +121,8 @@ class ModeloFormularios{
     ELMINAR REGISTRO
     =====================*/
     static public function mdlEliminarProducto($tabla, $valor){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(deleted_at) VALUES(CURRENT_TIMESTAMP()) WHERE $tabla.id = :id");
-        $stmt-> bindParam(":id",$valor, PDO::PARAM_INT);
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET deleted_at=CURRENT_TIMESTAMP() WHERE SKU = :SKU");
+        $stmt-> bindParam(":SKU",$valor, PDO::PARAM_INT);
         if($stmt->execute()){
             return "ok";
         }else{
