@@ -38,7 +38,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistroProductos(null, null);
             <td>
                 <div class = "btn-group">
                     <div class="px-1">
-                    <a href="index.php?pagina=editarproducto&id=<?php echo $value["id"]; ?> " class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="index.php?pagina=editarproducto&id=<?php echo $value["SKU"]; ?> " class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     </div>
                 </div>
             </td>

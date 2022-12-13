@@ -72,7 +72,7 @@ class ControladorFormularios{
                         }
             
                      </script>';
-                    echo '<div class="alert alert-danger"> El usuario está registrado y la clave es incorrecta.</div>';
+                    echo '<div class="alert alert-danger">Credenciales Incorrectas.</div>';
                 }
             }
         }
@@ -163,7 +163,7 @@ class ControladorFormularios{
                             "precio_costo" => $_POST["actualizarPrecioCosto"],
                             "precio_venta" => $_POST["actualizarPrecioVenta"],
                             "stockactual" => $_POST["actualizarStockActual"],
-                            "id" => $_POST["id"]                        
+                            "id" => $_POST["id"]                     
                         );
             $respuesta = ModeloFormularios::mdlActualizarProducto($tabla,$datos);
             return $respuesta;              

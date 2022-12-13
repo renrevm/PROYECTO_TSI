@@ -10,7 +10,7 @@ if(isset($_SESSION["validarIngreso"])){
     return;
 }
 if(isset($_GET["id"])){   
-    $item = "id";
+    $item = "SKU";
     $valor = $_GET["id"]; 
     $usuario = ControladorFormularios::ctrSeleccionarRegistroProductos($item, $valor);
 }
@@ -28,6 +28,7 @@ if(isset($_GET["id"])){
                     <th>Stock Disponibles</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,7 @@ if(isset($_GET["id"])){
                     <td><input type="number" class="form-control" value="<?php echo $usuario["precio_costo"]; ?>" id="precio_costo" name="actualizarPrecioCosto" min="0"></td>
                     <td><input type="number" class="form-control" value="<?php echo $usuario["precio_venta"]; ?>" id="precio_venta" name="actualizarPrecioVenta" min="0"></td>
                     <td><input type="number" class="form-control" value="<?php echo $usuario["stockactual"]; ?>" id="stockactual" name="actualizarStockActual"></td>
+                    <input type="hidden" name="id" value="<?php echo $usuario["id"]; ?>">
                     <input type="hidden" name="id" value="<?php echo $usuario["id"]; ?>">
                     <input type="hidden" name="id_categoria" value="<?php echo $usuario["id_categoria"]; ?>">
                     <td>
