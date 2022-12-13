@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 ?>
 
 
@@ -53,57 +54,28 @@ session_start();
     BOTONERA
     ------------------------------------------->
     
-    <div class = "container-fluid bg-light">
-        <div class ="container" >
-            <ul class="nav nav-justified py-2 nav-pills">
-            
-            <?php if (isset($_GET["pagina"])):?>
-                <?php if($_GET["pagina"]=="registro"):?>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php?pagina=registro">Registro</a>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?pagina=registro">Registro</a>
-                    </li>
-                <?php endif ?>
-
-                <?php if($_GET["pagina"]=="ingreso"):?>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php?pagina=ingreso">Ingreso</a>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?pagina=ingreso">Ingreso</a>
-                    </li>
-                <?php endif ?>
-
-                <?php if($_GET["pagina"]=="inicio"):?>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php?pagina=inicio">Inicio</a>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?pagina=inicio">Inicio</a>
-                    </li>
-                <?php endif ?>
-            <?php else: ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?pagina=registro">Registro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?pagina=ingreso">Ingreso</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active"href="index.php?pagina=inicio">Inicio</a>
-                </li>
-            <?php endif ?>
-                
-            
-
-            </ul>
-        </div>
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container-fluid">
+    <a class="navbar-brand" href="index.php?pagina=registro">Registro</a>
+    <a class="navbar-brand" href="index.php?pagina=ingreso">Ingreso</a>
+    <a class="navbar-brand" href="index.php?pagina=inicio">inicio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+    
+        <?php if(isset($_SESSION["validarIngreso"])){
+    if($_SESSION["validarIngreso"] == "ok"){
+  ?>               <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modal_cart" style="color: red;"><i class="fas fa-shopping-cart"></i> <?php echo $totalcantidad; ?></a>                 <?php    } } ?> 
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+<!-- END NAVBAR -->
     
         <!-- ---------------------------------------
     CONTENIDO
