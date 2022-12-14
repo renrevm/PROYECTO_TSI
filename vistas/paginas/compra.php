@@ -75,6 +75,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarProd(null,null);
     <?php endforeach ?>
     <div class= "btn-group">
                 <div class="px-1">
+<<<<<<< HEAD
                 <a href="index.php?pagina=inicio" label = "Volver" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
                 </div>
     </div>
@@ -82,6 +83,15 @@ $usuarios = ControladorFormularios::ctrSeleccionarProd(null,null);
     <div class= "btn-group">
                 <div class="px-1">
                 <a href="index.php?pagina=carrito" label = "Ir al carro" class ="btn btn-warning"><i class="fa-solid fa-cart-shopping"></i></i></i></a>
+=======
+                <a href="index.php?pagina=inicio" label = "Crear Producto" class ="btn btn-danger"><i class="fa-solid fa-backward"></i></i></i></a>
+                </div>
+    </div>
+    <form>Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" /></form>
+    <div style= left:700px; class= "btn-group">
+                <div class="px-1" >
+                <a href="index.php?pagina=inicio" label = "Crear Producto" class ="btn btn-success"><i style= 'color:white'; class="fa-solid fa-cart-shopping"></i></i></i></a>
+>>>>>>> 4323effd33a3b1ae9871694cf8793ad349cbd4b8
                 </div>
     </div>
     </tbody>
