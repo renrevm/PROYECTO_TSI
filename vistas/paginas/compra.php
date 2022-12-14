@@ -25,7 +25,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarProd(null,null);
             <th>Precio Costo</th>
             
             <th>Stock Actual</th>
-            <th>id</th>
+            <th></th>
             
             
         </tr>
@@ -41,7 +41,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarProd(null,null);
             <td><?php echo $value["precio_costo"]; ?></td>
             
             <td><?php echo $value["stockactual"]; ?></td>
-            <td><?php echo $value["id"]; ?></td>
+            <td style="visibility:collapse; display:none;"><?php echo $value["id"]; ?></td>
             
             
             <td>

@@ -84,6 +84,17 @@ class ModeloFormularios{
     CREAR PRODUCTO
     =====================*/
     static public function mdlRegistroProducto($tabla, $datos){
+        /*
+                $stmt = Conexion::conectar()->prepare("CREATE OR UPDATE PROCEDURE xd(in n SKU%type, in m SKU%type; BEGIN SET @conteoExistencia = = (SELECT COUNT(*) FROM $tabla WHERE SKU = n);
+        IF @conteoExistencia > 0 THEN
+                SIGNAL SQLSTATE '45000'
+                SET MESSAGE_TEXT = 'El registro ya existe';
+            ELSE 
+                INSERT INTO $tabla(SKU, nombre_producto, id_categoria, precio_costo, precio_venta, stockactual) 
+                VALUES(:SKU, :nombre_producto, :id_categoria, :precio_costo, :precio_venta, 0);
+        END IF;
+        END;");
+        */
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(SKU, nombre_producto, id_categoria, precio_costo, precio_venta, stockactual) 
         VALUES(:SKU, :nombre_producto, :id_categoria, :precio_costo, :precio_venta, 0)");
         $stmt-> bindParam(":SKU",$datos["SKU"], PDO::PARAM_INT);
@@ -224,6 +235,38 @@ class ModeloFormularios{
     static public function mdlQuitarDelCarroVenta($tabla, $valor){
         $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE producto_id = :producto_id");
         $stmt-> bindParam(":producto_id",$valor, PDO::PARAM_INT);
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+    }
+    /*=====================
+    comprar
+    ------------------*/
+    static public function mdlComprar($table, $datos){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $table(numcompra, sku, nombre, monto) 
+        VALUES (:numcompra, sku, :nombre, :monto)");
+        $stmt-> bindParam(":numcompra",$datos["numcompra"], PDO::PARAM_INT);
+        $stmt-> bindParam(":sku",$datos["sku"], PDO::PARAM_INT);
+        $stmt-> bindParam(":nombre",$datos["nombre"], PDO::PARAM_INT);
+        $stmt-> bindParam(":monto",$datos["monto"], PDO::PARAM_INT);
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+    }
+    /*=====================
+    vender
+    ------------------*/
+    static public function mdlVender($table, $datos){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $table(numventa, sku, nombre, monto) 
+        VALUES (:numventa, sku, :nombre, :monto)");
+        $stmt-> bindParam(":numventa",$datos["numventa"], PDO::PARAM_INT);
+        $stmt-> bindParam(":sku",$datos["sku"], PDO::PARAM_INT);
+        $stmt-> bindParam(":nombre",$datos["nombre"], PDO::PARAM_INT);
+        $stmt-> bindParam(":monto",$datos["monto"], PDO::PARAM_INT);
         if($stmt->execute()){
             return "ok";
         }else{

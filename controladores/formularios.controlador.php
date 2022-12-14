@@ -138,6 +138,7 @@ class ControladorFormularios{
     __________________________________
     */
     static public function ctrRegistroProductos(){
+        
         if(isset($_POST["crearSKU"])){
             $tabla = "productos";
             $datos = array("SKU" => $_POST["crearSKU"],
@@ -289,6 +290,58 @@ class ControladorFormularios{
                     window.location = "index.php?pagina=carritoventa";
                 </script>';
             }
+        }
+    }
+    /*
+    comprar
+    */
+    static public function ctrComprar(){
+        if(isset($_POST["sskkuu"])){
+            $table = "comprasss";
+            $datos = array("numcompra" => $_POST["ncompra"],
+                            "sku" => $_POST["sskkuu"], 
+                            "nombre" => $_POST["nomprod"], 
+                            "monto" => $_POST["pcosto"], 
+                        );
+            $respuesta = ModeloFormularios::mdlComprar($table,$datos);
+            if($respuesta == "ok"){
+                echo '<script>
+                    if (window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    window.location = "index.php?pagina=compra";
+                
+                </script>
+                echo <div class="alert alert-success"> Error.</div>';;
+                
+            }
+            return $respuesta;
+        }
+    }
+    /*
+    vender
+    */
+    static public function ctrVender(){
+        if(isset($_POST["sskkuu"])){
+            $table = "ventasss";
+            $datos = array("numventa" => $_POST["nventa"],
+                            "sku" => $_POST["sskkuu"], 
+                            "nombre" => $_POST["nomprod"], 
+                            "monto" => $_POST["pventa"], 
+                        );
+            $respuesta = ModeloFormularios::mdlVender($table,$datos);
+            if($respuesta == "ok"){
+                echo '<script>
+                    if (window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    window.location = "index.php?pagina=venta";
+                
+                </script>
+                echo <div class="alert alert-success"> Error.</div>';;
+                
+            }
+            return $respuesta;
         }
     }
 }

@@ -6,4 +6,11 @@ function obtenerProductos()
     return $stmt -> fetch();
 
 }
+
+
+
+
+
+
+
 ?>

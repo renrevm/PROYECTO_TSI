@@ -1,3 +1,17 @@
+<?php
+if(isset($_SESSION["validarIngreso"])){
+    if($_SESSION["validarIngreso"] != "ok"){
+        echo '<script> window.location = "index.php?pagina=ingreso"; </script>';
+        return;
+    }
+
+}else{
+    echo '<script> window.location = "index.php?pagina=ingreso"; </script>';
+    return;
+}
+?>
+
+
 <div class="d-flex justify-content-center text-center">
     <form class="p-5 bg-light" method="post">
         <div class="form-group">
