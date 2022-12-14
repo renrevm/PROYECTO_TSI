@@ -19,7 +19,7 @@ class ModeloFormularios{
     }
     /*
     __________________________________
-    SELECCIONAR REGISTROS PROFESORES
+    SELECCIONAR REGISTROS PRODUCTOS
     __________________________________  
     */
     static public function mdlSeleccionarRegistros($tabla, $item, $valor){
@@ -36,7 +36,7 @@ class ModeloFormularios{
         $stmt = null;
     }
     /*=====================
-    ACTUALIZAR REGISTRO PROFES
+    ACTUALIZAR REGISTRO PRODUCTOS
     =====================*/
     static public function mdlActualizarRegistro($tabla, $datos){
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre, email=:email, password=:password WHERE id= :id ");
@@ -138,6 +138,78 @@ class ModeloFormularios{
         dd($stmt);
         return $stmt -> fetchAll();
     }
+/*=====================
+    añadir al carro
+    INSERT INTO `det_ventas` (`producto_id`, `venta_id`, `precio_unitario`, `deleted_at`) VALUES ('3', '2', '50000', NULL);
+    =====================*/
+    static public function mdlAnadirAlCarro($table, $datos){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $table(producto_id, venta_id, precio_unitario) 
+        VALUES (:producto_id, 1, :precio_unitario)");
+        $stmt-> bindParam(":producto_id",$datos["producto_id"], PDO::PARAM_INT);
+        $stmt-> bindParam(":precio_unitario",$datos["precio_unitario"], PDO::PARAM_INT);
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+    }
+    /*=====================
+    obtener id de producto
+    SELECT id FROM `productos` WHERE SKU = 123456;
+    =====================*/
+    static public function mdlSeleccionarProd($tabla, $item, $valor){
+        if($item == null && $valor == null){
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id DESC");
+            $stmt->execute();
+            return $stmt -> fetchAll();    
+        }else{
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
+            $stmt-> bindParam(":".$item,$valor, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt -> fetch();    
+        }
+        $stmt = null;
+    }
+    /*=====================
+    obtener id de venta
+    SELECT id FROM `ventas` ORDER BY id DESC LIMIT 1;
+    function obtenerProductos()
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->query("SELECT id, nombre, descripcion, precio FROM productos");
+    return $sentencia->fetchAll();
+}
+    =====================*/
+    static public function mdlSeleccionarIdVenta($tabla, $item, $valor){
+        if($item == null && $valor == null){
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id DESC");
+            $stmt->execute();
+            return $stmt -> fetchAll();    
+        }else{
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
+            $stmt-> bindParam(":".$item,$valor, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt -> fetch();    
+        }
+        $stmt = null;
+    }
+    /*=====================
+    mostrar carrito
+    ------------------*/
+    static public function mdlMostrarCarrito($tabla, $table, $tabli, $item, $valor){
+        if($item == null && $valor == null){
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c, $tabli z WHERE c.id = t.producto_id and t.venta_id = z.id");
+            $stmt->execute();
+            return $stmt -> fetchAll();    
+        }else{
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.id_categoria AND t.$item = :$item");
+            $stmt-> bindParam(":".$item,$valor, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt -> fetch();    
+        }
+        $stmt = null;
+    }
+    
 }
 
 ?>

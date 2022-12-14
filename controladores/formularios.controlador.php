@@ -201,6 +201,63 @@ class ControladorFormularios{
         $tabla = "categorias";
         $respuesta = ModeloFormularios::mdlSeleccionarCategorias($tabla, $query);
         return $respuesta;  
-    }                                                                                                           
+    } 
+    /*
+    __________________________________
+    AÑADIR AL CARRO
+    __________________________________
+    */                                                                                                          
+    static public function ctrAnadirAlCarro(){
+        if(isset($_POST["id"])){
+            $table = "det_ventas";
+            $datos = array("producto_id" => $_POST["id"],
+                            
+                            "precio_unitario" => $_POST["anadirPrecio"], 
+                        );
+            $respuesta = ModeloFormularios::mdlAnadirAlCarro($table,$datos);
+            if($respuesta == "ok"){
+                echo '<script>
+                    if (window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    window.location = "index.php?pagina=compra";
+                
+                </script>
+                echo <div class="alert alert-success"> Error.</div>';;
+                
+            }
+            return $respuesta;
+        }
+    }
+        /*
+    __________________________________
+    OBTENER ID PRODUCTO
+    __________________________________
+    */                                  
+    static public function ctrSeleccionarProd($item, $valor){
+        $tabla = "productos";
+        $respuesta = ModeloFormularios::mdlSeleccionarProd($tabla, $item, $valor);
+        return $respuesta;
+    }
+    /*
+    __________________________________
+    OBTENER ID VENTA
+    __________________________________
+    */
+    static public function ctrSeleccionarIdVenta($item, $valor){
+        $tabla = "ventas";
+        $respuesta = ModeloFormularios::mdlSeleccionarIdVenta($tabla, $item, $valor);
+        return $respuesta;
+    }
+    /*  
+    mostrar carrito
+    */
+    static public function ctrMostrarCarrito($item, $valor){
+        $tabla = "det_ventas";
+        $table = "productos";
+        $tabli = "ventas";
+        $respuesta = ModeloFormularios::mdlSeleccionarRegistroProductos($tabla, $table, $tabli, $item, $valor);
+        return $respuesta;
+    }
 }
 ?>
