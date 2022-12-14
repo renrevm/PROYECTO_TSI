@@ -13,41 +13,61 @@ $usuarios = ControladorFormularios::ctrMostrarCarrito(null, null);
 //$notas = ControladorFormularios::ctrSeleccionarRegistrosNotas(null,null);
 //$usuarios = $notas;
 ?>
+<style>
+    .center {
+  text-align: center;
+  border: 3px solid green;
+}
+</style>
 <table class="table" id="tablaxd">
     <thead>
         <tr>
             <th></th>
             <th>SKU</th>
             <th>Nombre</th>
-            <th>Categoria</th>
+            
+            
             <th>Precio Costo</th>
-            <th>Precio Venta</th>
-            <th>Stock Actual</th>
+            
         </tr>
     </thead>
     <tbody>
+    <?php $total = 0 ?>
     <?php foreach ($usuarios as $key => $value): ?>
         <tr>
+        
             <td><?php echo ($key+1); ?></td>
             <td><?php echo $value["SKU"]; ?></td>
             <td><?php echo $value["nombre_producto"]; ?></td>
-            <td><?php echo $value["nombre_categoria"]; ?></td>
+            
             <td><?php echo $value["precio_costo"]; ?></td>
-            <td><?php echo $value["precio_venta"]; ?></td>
-            <td><?php echo $value["stockactual"]; ?></td>
+            <?php $total = $total + $value["precio_costo"]; ?>
             <td>
-                <div class = "btn-group">
-                    <div class="px-1">
-                    <a href="index.php?pagina=editarproducto&id=<?php echo $value["SKU"]; ?> " class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                    </div>
-                </div>
+                <div class= "btn-group">
+                    <form method="post">
+                        <input type="hidden" value = "<?php echo $value["producto_id"]; ?>" name="quitarCarro">
+                        <button type="submit" class ="btn btn-danger"><i class="fa-solid fa-delete-left"></i></button>
+                        <?php
+                            $eliminar = new ControladorFormularios();
+                            $eliminar->ctrQuitarDelCarroCompra();
+                        ?>
+                    </form>
+            </div>
+            
             </td>
+            
+
         </tr>
     <?php endforeach ?>
+    <h1> </h1>
     <div class= "btn-group">
                 <div class="px-1">
                 <a href="index.php?pagina=inicio" label = "Crear Producto" class ="btn btn-warning"><i class="fa-solid fa-backward"></i></i></i></a>
                 </div>
+    </div>
+    <div class="center">
+        <h1>Total Factura</h1>
+        <h2>$<?php echo $total  ?></h2>
     </div>
     <form>Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" /></form>
     

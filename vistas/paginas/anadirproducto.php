@@ -76,7 +76,7 @@ $user = ControladorFormularios::ctrSeleccionarIdVenta(null, null);
                                     </script>'; 
                                 }
                             ?>
-                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <button type="submit" class="btn btn-primary">Añadir </button>
                     </td>                
                 </tr>
             </tbody>

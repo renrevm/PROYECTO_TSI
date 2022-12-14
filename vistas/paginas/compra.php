@@ -65,7 +65,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarProd(null,null);
                     <td>
                 <div class = "btn-group">
                     <div class="px-1">
-                    <a href="index.php?pagina=anadirproducto&id=<?php echo $value["SKU"]; ?> " class ="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="index.php?pagina=anadirproducto&id=<?php echo $value["SKU"]; ?> " class ="btn btn-warning"><i class="fa-solid fa-cart-plus"></i></i></a>
                     </div>
                 </div>
             </td>
@@ -81,7 +81,7 @@ $usuarios = ControladorFormularios::ctrSeleccionarProd(null,null);
     <form>Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" /></form>
     <div class= "btn-group">
                 <div class="px-1">
-                <a href="index.php?pagina=carrito" label = "Ir al carro" class ="btn btn-warning"><i class="fa-solid fa-cart-shopping"></i></i></i></a>
+                <a href="index.php?pagina=carritocompra" label = "Ir al carro" class ="btn btn-warning"><i class="fa-solid fa-cart-plus"></i></i></i></i></a>
                 </div>
     </div>
     </tbody>

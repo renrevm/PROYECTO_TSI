@@ -255,9 +255,41 @@ class ControladorFormularios{
     static public function ctrMostrarCarrito($item, $valor){
         $tabla = "det_ventas";
         $table = "productos";
-        $tabli = "ventas";
-        $respuesta = ModeloFormularios::mdlSeleccionarRegistroProductos($tabla, $table, $tabli, $item, $valor);
+        $respuesta = ModeloFormularios::mdlMostrarCarrito($tabla, $table, $item, $valor);
         return $respuesta;
+    }
+    /*
+    quitar del carro
+    */
+    public function ctrQuitarDelCarroCompra(){
+        if(isset($_POST["quitarCarro"])){
+            $tabla = "det_ventas";
+            $valor = $_POST["quitarCarro"];            
+            $respuesta = ModeloFormularios::mdlQuitarDelCarroCompra($tabla, $valor);
+            if($respuesta == "ok"){
+                echo '<script>
+                    if (window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    window.location = "index.php?pagina=carritocompra";
+                </script>';
+            }
+        }
+    }
+    public function ctrQuitarDelCarroVenta(){
+        if(isset($_POST["quitarCarro"])){
+            $tabla = "det_ventas";
+            $valor = $_POST["quitarCarro"];            
+            $respuesta = ModeloFormularios::mdlQuitarDelCarroVenta($tabla, $valor);
+            if($respuesta == "ok"){
+                echo '<script>
+                    if (window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    window.location = "index.php?pagina=carritoventa";
+                </script>';
+            }
+        }
     }
 }
 ?>

@@ -99,7 +99,8 @@ session_start();
                        $_GET["pagina"] == "compra" ||
                        $_GET["pagina"] == "venta" ||
                        $_GET["pagina"] == "anadirproducto" ||
-                       $_GET["pagina"] == "carrito" ||
+                       $_GET["pagina"] == "carritoventa" ||
+                       $_GET["pagina"] == "carritocompra" ||
                        $_GET["pagina"] == "salir"){
                        
                         include "paginas/".$_GET["pagina"].".php";

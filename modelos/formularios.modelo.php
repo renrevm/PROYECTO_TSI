@@ -196,9 +196,9 @@ class ModeloFormularios{
     /*=====================
     mostrar carrito
     ------------------*/
-    static public function mdlMostrarCarrito($tabla, $table, $tabli, $item, $valor){
+    static public function mdlMostrarCarrito($tabla, $table, $item, $valor){
         if($item == null && $valor == null){
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c, $tabli z WHERE c.id = t.producto_id and t.venta_id = z.id");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla t, $table c WHERE c.id = t.producto_id");
             $stmt->execute();
             return $stmt -> fetchAll();    
         }else{
@@ -209,7 +209,27 @@ class ModeloFormularios{
         }
         $stmt = null;
     }
-    
+    /*=====================
+    quitar del carro
+    ------------------*/
+    static public function mdlQuitarDelCarroCompra($tabla, $valor){
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE producto_id = :producto_id");
+        $stmt-> bindParam(":producto_id",$valor, PDO::PARAM_INT);
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+    }
+    static public function mdlQuitarDelCarroVenta($tabla, $valor){
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE producto_id = :producto_id");
+        $stmt-> bindParam(":producto_id",$valor, PDO::PARAM_INT);
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+    }
 }
 
 ?>
