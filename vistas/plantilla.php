@@ -86,9 +86,11 @@ session_start();
                 if(isset($_GET["pagina"])){
                     if($_GET["pagina"] == "registro" ||
                        $_GET["pagina"] == "ingreso" ||
+                       $_GET["pagina"] == "agregarAlCarrito" ||
                        $_GET["pagina"] == "inicio" ||
                        $_GET["pagina"] == "editar" ||
                        $_GET["pagina"] == "listadoalumnos" ||
+                       $_GET["pagina"] == "conexion2" ||
                        $_GET["pagina"] == "crearproducto" ||
                        $_GET["pagina"] == "modificarproducto" ||
                        $_GET["pagina"] == "editarproducto" ||
@@ -98,6 +100,7 @@ session_start();
                        $_GET["pagina"] == "venta" ||
                        $_GET["pagina"] == "anadirproducto" ||
                        $_GET["pagina"] == "vender" ||
+                       $_GET["pagina"] == "listar" ||
                        
                        $_GET["pagina"] == "carritoventa" ||
                        $_GET["pagina"] == "carritocompra" ||

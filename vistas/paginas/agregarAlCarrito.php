@@ -4,7 +4,7 @@ if (!isset($_POST["codigo"])) {
 }
 
 $codigo = $_POST["codigo"];
-include_once "conexion2.php";
+include_once "./vistas/paginas/conexion2.php";
 $sentencia = $base_de_datos->prepare("SELECT * FROM productos WHERE SKU = ? LIMIT 1;");
 $sentencia->execute([$codigo]);
 $producto = $sentencia->fetch(PDO::FETCH_OBJ);
@@ -15,7 +15,7 @@ if (!$producto) {
 }
 
 if ($producto->existencia < 1) {
-    header("Location: ./vistas./paginas/vender.php?status=5");
+    header("Location: ./vistas/paginas/vender.php?status=5");
     exit;
 }
 session_start();

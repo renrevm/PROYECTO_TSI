@@ -94,4 +94,4 @@ $granTotal = 0;
 		<a href="./cancelarVenta.php" class="btn btn-danger">Cancelar venta</a>
 	</form>
 </div>
-<?php include_once "pie.php" ?>
+<?php include_once "./vistas/paginas/pie.php" ?>
