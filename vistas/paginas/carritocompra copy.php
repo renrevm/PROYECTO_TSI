@@ -31,7 +31,7 @@ $usuarios = ControladorFormularios::ctrMostrarCarrito(null, null);
     </thead>
     <tbody>
     <?php $total = 0 ?>
-    <?php $numcompra = 0 ?>
+    <?php $numcompra = 1 ?>
     <div class="btn-group" method="post">
         <?php foreach ($usuarios as $key => $value): ?>
             <tr>
@@ -42,9 +42,10 @@ $usuarios = ControladorFormularios::ctrMostrarCarrito(null, null);
                 <td id="nomprod" name="nomprod" ><?php echo $value["nombre_producto"]; ?></td>
                 
                 <td id="pcosto" name="pcosto" ><?php echo $value["precio_costo"]; ?></td>
+                <td id="ncompra" name="ncompra" ><?php echo $numcompra?></td>
                 <?php $total = $total + $value["precio_costo"]; ?>
                 <td>
-                    <div class= "btn-group">
+                    <div class= "btn-group" name = "borrar">
                         <form method="post">
                             <input type="hidden" value = "<?php echo $value["producto_id"]; ?>" name="quitarCarro">
                             <button type="submit" class ="btn btn-danger"><i class="fa-solid fa-delete-left"></i></button>
@@ -52,14 +53,39 @@ $usuarios = ControladorFormularios::ctrMostrarCarrito(null, null);
                                 $eliminar = new ControladorFormularios();
                                 $eliminar->ctrQuitarDelCarroCompra();
                             ?>
+
                         </form>
                 </div>
+                <div class= "btn-group" name="comprar">
+                        <form method="post">
+                            <input type="hidden" value = "<?php echo $value["producto_id"]; ?>" name="agregarCompra">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <?php
+                                $comprar = ControladorFormularios::ctrComprar();
+                            ?>
+
+                        </form>
+                </div>
+
                 
+
+
                 </td>
                 
 
             </tr>
         <?php endforeach ?>
+        
+        <div class = "form-group">
+            <p>id boleta</p>
+            
+            <button type="submit" class="btn btn-primary">Comprar </button>
+            <?php
+                foreach ($usuarios as $key => $value):
+                    $comprar = ControladorFormularios::ctrComprar();
+                endforeach;
+                $numcompra = $numcompra + 1;
+            ?>
     </div>
     <h1> </h1>
     <div class= "btn-group">
@@ -74,24 +100,10 @@ $usuarios = ControladorFormularios::ctrMostrarCarrito(null, null);
             <h1>Total Factura</h1>
             <h2 id="totalfactura" name="totalfactura" ><?php echo $total  ?></h2>
         </div>
-        <div class="row">
-            <p>id boleta</p>
-            <p id="ncompra" name="ncompra" ><?php echo $numcompra?></p>
-        </div>
-        <div class = "form-group" method = "get">
+
+        <div class = "form-group" method = "post">
             <form>Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" /></form>
-            <?php
-                foreach ($usuarios as $key => $value):
-                    echo ($numcompra);
-                    echo ($value['precio_costo']);
-                    
-                    
-                    $comprar = ControladorFormularios::ctrComprar();
-                    
-                endforeach;
-                $numcompra = $numcompra + 1;
-            ?>
-            <button type="submit" class="btn btn-primary">Comprar </button>
+            
         </div>
     </div>
     

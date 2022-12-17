@@ -212,7 +212,7 @@ class ControladorFormularios{
         if(isset($_POST["id"])){
             $table = "det_ventas";
             $datos = array("producto_id" => $_POST["id"],
-                            
+
                             "precio_unitario" => $_POST["anadirPrecio"], 
                         );
             $respuesta = ModeloFormularios::mdlAnadirAlCarro($table,$datos);
@@ -296,13 +296,13 @@ class ControladorFormularios{
     comprar
     */
     static public function ctrComprar(){
-        if(isset($_POST["sskkuu"])){
-            $table = "comprasss";
-            $datos = array("numcompra" => $_POST["ncompra"],
-                            "sku" => $_POST["sskkuu"], 
-                            "nombre" => $_POST["nomprod"], 
-                            "monto" => $_POST["pcosto"], 
-                        );
+        if(isset($_POST["producto_id"])){
+            $table = "ventasss";
+            $datos = array("numcompra" => $_POST["nventa"],
+                "sku" => $_POST["sskkuu"], 
+                "nombre" => $_POST["nomprod"], 
+                "monto" => $_POST["pcosto"], 
+        );
             $respuesta = ModeloFormularios::mdlComprar($table,$datos);
             if($respuesta == "ok"){
                 echo '<script>
@@ -322,7 +322,7 @@ class ControladorFormularios{
     vender
     */
     static public function ctrVender(){
-        if(isset($_POST["sskkuu"])){
+        if(isset($_POST["nventa"])){
             $table = "ventasss";
             $datos = array("numventa" => $_POST["nventa"],
                             "sku" => $_POST["sskkuu"], 

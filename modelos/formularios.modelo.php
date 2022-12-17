@@ -245,8 +245,8 @@ class ModeloFormularios{
     comprar
     ------------------*/
     static public function mdlComprar($table, $datos){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $table(numcompra, sku, nombre, monto) 
-        VALUES (:numcompra, sku, :nombre, :monto)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $table(sku, nombre, monto) 
+        VALUES (sku, :nombre, :monto)");
         $stmt-> bindParam(":numcompra",$datos["numcompra"], PDO::PARAM_INT);
         $stmt-> bindParam(":sku",$datos["sku"], PDO::PARAM_INT);
         $stmt-> bindParam(":nombre",$datos["nombre"], PDO::PARAM_INT);
